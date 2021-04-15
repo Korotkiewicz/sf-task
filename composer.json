@@ -1,0 +1,12 @@
+{
+    "name": "smartframe-task/application",
+    "description": "Recruitement task for Smart Frame",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Michal Korotkiewicz",
+            "email": "michal@korotkiewicz.pl"
+        }
+    ],
+    "require": {}
+}
