@@ -1,0 +1,20 @@
+version: "3.1"
+services:
+    php:
+        build: "./docker/php-fpm"
+        container_name: "smartframe-php"
+        working_dir: "/application"
+        volumes:
+            - ".:/application"
+
+    nginx:
+        image: "nginx:1.19"
+        container_name: "smartframe-nginx"
+        working_dir: "/application"
+        volumes:
+            - ".:/application"
+            - "./docker/nginx/smartframe.conf:/etc/nginx/conf.d/default.conf"
+        ports:
+            - "8080:80"
+        links:
+            - "php"
