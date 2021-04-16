@@ -2,7 +2,7 @@
 
 ## Task content
 
-Look into ./task.md file
+Look into [Task file](task.md)
 ## Start project from scratch
 
     docker-compose build
