@@ -13,6 +13,10 @@ Look into [Task file](task.md)
 
 Go into browser and open url: http://localhost:8080/
 
+There are two links which work:
+- http://localhost:8080/health 
+- http://localhost:8080/file/{filename.json}
+
 ## Execute tests
 
     docker-compose exec php php bin/phpunit
