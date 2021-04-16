@@ -22,7 +22,7 @@ class FileStorage
 
     public function getFilePath(string $fileName): string
     {
-        return $this->getPath() . $fileName;
+        return $this->getPath() . '/' . $fileName;
     }
 
     public function getPath(): string
@@ -37,7 +37,7 @@ class FileStorage
         return $this->filesystem->exists($filePath);
     }
 
-    public function filePutContent(string $fileName, mixed $content): void
+    public function filePutContent(string $fileName, $content): void
     {
         $filePath = $this->getFilePath($fileName);
 

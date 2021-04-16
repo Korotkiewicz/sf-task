@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Service\FileFactoryInterface;
 use App\Service\FileReaderInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,7 +29,7 @@ class IndexController extends AbstractController
      *         "_format": "txt|json",
      *     })
      */
-    public function getFile(Request $request, FileFactoryInterface $factory, FileReaderInterface $reader): Response
+    public function getFile(Request $request, FileFactoryInterface $factory, FileReaderInterface $reader, LoggerInterface $logger): Response
     {
         $fileName = $request->get('fileName') . '.' . $request->getRequestFormat();
         
@@ -38,6 +39,8 @@ class IndexController extends AbstractController
 
             return $this->file($file);
         } catch (\Exception $e) {
+            $logger->error($e->getMessage());
+            
             return new Response('Cannot retrive file ' . $fileName, Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }

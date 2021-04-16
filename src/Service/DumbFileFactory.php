@@ -21,8 +21,8 @@ class DumbFileFactory implements FileFactoryInterface
 
         if (!$this->fileStorage->exists($filePath)) {
             $content = $this->createExampleContent($fileName);
-
-            $this->fileStorage->filePutContent($filePath, $content);
+            
+            $this->fileStorage->filePutContent($fileName, $content);
         }
     }
 
