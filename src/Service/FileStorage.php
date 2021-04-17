@@ -43,4 +43,11 @@ class FileStorage
 
         $this->filesystem->dumpFile($filePath, json_encode($content));
     }
+
+    public function remove(string $fileName)
+    {
+        $filePath = $this->getFilePath($fileName);
+
+        $this->filesystem->remove($filePath);
+    }
 }
