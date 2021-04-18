@@ -20,7 +20,11 @@ Go into browser and open url: http://localhost:8080/
 
 There are two links which work:
 - http://localhost:8080/health 
-- http://localhost:8080/file/{filename.json|txt}
+- http://localhost:8080/file/{filename.json|txt}?token=1234
+
+WARNING: 
+
+    Token 1234 is default token set in .env
 
 ## Execute tests
 

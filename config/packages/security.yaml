@@ -1,15 +1,21 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        users_in_memory: { memory: null }
+        token_user_provider:
+            id: App\Security\TokenUserProvider
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        watchdog:
+            pattern: ^/(health)
+            security: false
         main:
-            anonymous: true
-            lazy: true
-            provider: users_in_memory
+            pattern: ^/.*
+            guard:
+                authenticators:
+                    - App\Security\TokenAuthenticator
+            provider: token_user_provider
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -21,4 +27,4 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/.*, roles: ROLE_USER }

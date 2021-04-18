@@ -32,3 +32,7 @@ services:
     App\Service\FileStorage:
         arguments:
             $defaultPath: '%kernel.project_dir%/var/files'
+
+    App\Security\TokenUserProvider:
+        arguments:
+            $validToken: '%env(ACCESS_TOKEN)%'
