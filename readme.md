@@ -7,8 +7,8 @@ Look into [Task file](task.md)
 
 1. From scratch:
 
-    docker-compose build
-    docker-compose up -d
+    docker-compose build &&
+    docker-compose up -d &&
     docker-compose exec php composer install
 
 2. Next time:
